@@ -2,33 +2,33 @@
 
 HandlerSocketがうまく動かないとき、出てくるエラーはたった数文字の文字列で何が何だかよくわからないのでわかる範囲でまとめておく。  
 
-+ cmd, syntax, notimpl
++ cmd, syntax, notimpl  
     いわゆるシンタックスエラー。構文が間違っているなどでパースに失敗したときに出てくる。  
-+ authtype, unauth
++ authtype, unauth  
     認証系のエラー。DBへの接続に失敗しているときなど。
-+ open_table
++ open_table  
     指定されたテーブルが存在しない、指定したテーブル名が間違っている
-+ tblnum, stmtnum
++ tblnum, stmtnum  
     遭遇したことが無い。インデックス番号が初期化されていない場合に返される
-+ invalueslen
++ invalueslen  
     遭遇したことが無い。IN句に使えるサイズの制限を超えている場合に返される
-+ filtertype
++ filtertype  
     filterに指定したtypeが間違っている
-+ filterfld
++ filterfld  
     filterで指定したカラムが見つからない。SQL流し忘れでカラムが無かったり
-+ lock_tables
++ lock_tables  
     テーブルがロックされていてアクセスできない
-+ modop
++ modop  
     指定されたmodifyコマンドが間違っている。使用可能なコマンドは'U', 'D', '+', '-'の4つのみ
-+ idxnum
++ idxnum  
     指定されたインデックス名が見つからない。インデックスが見つからないから個数が0になるので、numのエラーになる。SQL流し忘れてインデックスが無かったりとか
-+ kpnum, keylen
++ kpnum, keylen  
     idxnumと同じくインデックス関係でエラーがある
-+ op
++ op  
     指定されたオペレーター(演算子)が間違っている。使用可能なオペレーターは'>', '<', '>=', '<='の4つのみ
-+ readonly
++ readonly  
     INSERTやUPDATEなどの書き込み権限が付与されていないユーザーでmodifyコマンドを実行しようとした
-+ fld
++ fld  
     データ取得対象として指定されたカラムが見つからない
-+ filterblob
++ filterblob  
     BLOB型のカラムにフィルターを使おうとした。HandlerSocketではBLOB型のカラムで検索することはできない
